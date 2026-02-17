@@ -20,10 +20,12 @@ public class Foyer {
     private String nomFoyer;
     private Long capaciteFoyer;
 
-    @OneToOne(mappedBy = "foyer")
+    @ToString.Exclude
+    @OneToOne(mappedBy = "foyer", cascade = CascadeType.ALL, orphanRemoval = true)
     private Universite universite;
 
-    @OneToMany(mappedBy = "foyer")
+    @ToString.Exclude
+    @OneToMany(mappedBy = "foyer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Bloc> blocs;
 
 

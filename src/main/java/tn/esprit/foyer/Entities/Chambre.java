@@ -23,10 +23,11 @@ public class Chambre {
     @Enumerated(EnumType.STRING)
     private TypeChambre typeC;
 
-
+    @ToString.Exclude
     @ManyToOne
     private Bloc bloc;
 
-    @OneToMany
+    @ToString.Exclude
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Reservation> reservations;
 }

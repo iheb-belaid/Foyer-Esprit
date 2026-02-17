@@ -24,6 +24,15 @@ public class Reservation {
 
     private boolean estValide;
 
-    @ManyToMany
+    @ToString.Exclude
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Etudiant> etudiants;
+
+    public Long getIdReservation() {
+        return idReservation;
+    }
+
+    public void setIdReservation(Long idReservation) {
+        this.idReservation = idReservation;
+    }
 }

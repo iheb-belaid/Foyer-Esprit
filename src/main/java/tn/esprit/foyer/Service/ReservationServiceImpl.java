@@ -27,6 +27,10 @@ public class ReservationServiceImpl implements IReservationService {
 
     @Override
     public Reservation addReservation(Reservation r) {
+        if (r.getIdReservation() == null) {
+            Long maxId = reservationRepo.findMaxIdReservation();
+            r.setIdReservation(maxId + 1);
+        }
         return reservationRepo.save(r);
     }
 

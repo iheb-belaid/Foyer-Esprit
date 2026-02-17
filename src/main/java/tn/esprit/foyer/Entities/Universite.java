@@ -21,6 +21,7 @@ public class Universite {
     private String nomUniversite;
     private String adresse;
 
+    @ToString.Exclude
     @OneToOne
     private Foyer foyer;
 
